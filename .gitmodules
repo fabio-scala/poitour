@@ -1,0 +1,14 @@
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/fabioscala/poitour-frontend.git
+[submodule "backend"]
+	path = backend
+	url = https://github.com/fabioscala/poitour-backend.git
+[submodule "osrm/server"]
+	path = osrm/server
+	url = https://github.com/fabioscala/osrm-backend.git
+	branch = poitour
+[submodule "osrm/profiles"]
+	path = osrm/profiles
+	url = https://github.com/fabioscala/cbf-routing-profiles.git
+	branch = poitour
