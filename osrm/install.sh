@@ -1,11 +1,13 @@
 #!/bin/bash
 
+# Current script dir
 cd "$(dirname "$0")"
 
 # Install prerequisites (toolchain)
 sudo apt-get update
 sudo apt-get install build-essential git cmake pkg-config libprotoc-dev libprotobuf8 protobuf-compiler libprotobuf-dev libosmpbf-dev libpng12-dev libbz2-dev libstxxl-dev libstxxl-doc libstxxl1 libxml2-dev libzip-dev libboost-all-dev lua5.1 liblua5.1-0-dev libluabind-dev libluajit-5.1-dev libtbb-dev -y
 
+# Create new folder for binaries and data
 mkdir server/build
 cd server/build
 
@@ -22,6 +24,7 @@ LUA_PATH="`readlink -f ../../profiles/lib`/?.lua" ./osrm-extract switzerland-lat
 # Generate OSRM files
 LUA_PATH="`readlink -f ../../profiles/lib`/?.lua" ./osrm-prepare switzerland-latest.osrm --profile=../../profiles/foot-city.lua
 
+# Start OSRMon all interfaces if chosen by the user
 read -p 'Do you want to start OSRM on 0.0.0.0:8080 now? [Y/n] ' -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
